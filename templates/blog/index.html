@@ -1,0 +1,63 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <div id="posts-div" class="content-div">
+        <table class="tad">
+            <tr>
+                <td><span class="div-name">Posty</span></td>
+                <td><a href="{% url 'new_post' %}">Nowy post</a></td>
+                <td><a href="{% url 'all_posts' %}">Wszystkie posty</a></td>
+            </tr>
+        </table>
+        <table>
+            {% for post in latest_posts %}
+                <tr>
+                    <td>
+                        <img src='{{ post.image.url }}' alt="Image" id="post-image">
+                    </td>
+                    <td>[{{ post.category }}]</td>
+
+                    <td><span id="user-name">
+                        {{ post.author.username }}:
+                    </span></td>
+                    <td>
+                        <a href="posts/{{ post.id }}">
+                        {{ post.title }}
+                    </a>
+                    </td>
+                    <td>{{ post.pub_date|date:"j F Y H:i" }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+    
+    </div>
+    <div id="discussion-div" class="content-div">
+        <table class="tad">
+            <tr>
+                <td><span class="div-name">Dyskusje</span></td>
+                <td><a href="{% url 'new_topic' %}">Nowa dyskusja</a></td>
+                <td><a href="{% url 'all_topics' %}">Wszystkie dyskusje</a></td>
+            </tr>
+        </table>
+        <table>
+            {% for topic in latest_topics %}
+                <tr>
+                    <td>[{{ topic.category }}]</td>
+                    <td><span id="user-name">
+                        {{ topic.author.username }}:
+                    </span></td>
+                    
+                    <td>
+                    <a href="topics/{{ topic.id }}">
+                        {{ topic.title }}
+                    </a>
+                    </td>
+                    <td>{{ topic.pub_date|date:"j F Y H:i"  }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+    </div>
+    
+{% endblock %}

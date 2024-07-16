@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="extends-base">
+<table>
+   <tr><td><h4><a href={% url 'index' %}>Powrót do strony głównej</a></h4> </td>
+</tr>
+    {% for topic in list_of_topics %}
+        <tr>
+            <td>[{{ topic.category }}]</td>
+
+            <td><span id="user-name">
+                {{ topic.author.username }}:
+            </span></td>
+            <td>
+
+            <a href="{%url 'topic' topic.id %} ">
+                {{ topic.title }}
+            </a>
+            </td>
+            <td>{{ topic.pub_date|date:"j F Y H:i" }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+body {
+    background-color: white;
+
+}
+button {
+    font-family: fantasy;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+header button {
+    height: 1.8em;
+    width: 10em;
+    font-size: 1.3em;
+    position: relative;
+}
+#logged-in-as{
+    font-size: 1.3em;
+    font-family: fantasy;
+}
+img {
+    width: 10em;
+}
+#page-name {
+    font-size: 4em;
+    font-family: fantasy;
+}
+header {
+    position: sticky;
+    border: solid thin black;
+    border-radius: 10px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.content-div {
+    width: 45%;
+    border: solid thin black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+}
+.div-name {
+    font-family: fantasy;
+    font-size: 1.7em;
+}
+#post-image {
+    width: 12em;
+}
+main {
+    padding: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    font-family: Trebuchet MS, sans-serif;
+}
+.extends-base {
+    border: solid thin black;
+    border-radius: 10px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1%;
+}
+.post-div {
+    width: 60em;
+}
+.image-container {
+    width: 40em; /* Set a fixed width */
+    height: 35em; /* Set a fixed height */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.image-container img {
+    object-fit: contain; /* or 'contain' based on your preference */
+    width: 100%;
+    height: 100%;
+}
+.topic-div {
+    margin-bottom: 2px;
+}
+a {
+    color: #6e25b3;
+    text-decoration: none;
+    font-weight: bold/* Remove underlining */
+}
+
+a:hover {
+    text-decoration: underline; /* Add underlining on hover */
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-signin {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#topd {
+    width: 60em;
+}
+
+
+
+
+

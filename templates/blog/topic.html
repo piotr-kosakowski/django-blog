@@ -1,0 +1,55 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {#<h2>{{ topic.title }}</h2>#}
+    {#<p>{{ topic.description }}</p>#}
+    {#<p><em>Opublikowano: {{ topic.pub_date }}</em></p>#}
+    <div class="extends-base" id="topd">
+    <h4><a href={% url 'index' %}>Powrót do strony głównej</a></h4>
+    <h2>
+        [{{ topic.category }}], {{ topic.title }}
+    </h2>
+    <div class="topic-div" id="t1">
+        <table>
+            <tr>
+{#            <td><span>[{{ topic.category }}]</span></td>#}
+            <td><strong>{{ topic.author }}:</strong></td>
+{#            <td><span>{{ topic.title }}</span></td>#}
+            <td>{{ topic.description }}</td>
+            </tr>
+            <tr><td colspan="2"><em>{{ topic.pub_date }}</em></td></tr>
+        </table>    
+    
+    </div>
+        
+    {% if comments|length > 0 %}
+    {% for comment in comments %}
+    {#<div>#}
+    {#    <p>{{ comment.content }} </p>#}
+    {#    <strong>{{ comment.author }}</strong>#}
+    {#    <em>{{ comment.pub_date }}</em>#}
+    <div class="topic-div" id="tc">
+        <table>
+            <tr>
+            <td><strong>{{ comment.author }}:</strong></td>
+            <td><span>{{ comment.content }}</span></td>
+            </tr>
+            <tr><td colspan="2"><em>{{ comment.pub_date }}</em></td></tr>
+        </table>  
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Nie ma komentarzy</p>
+    {% endif %}
+        
+    {% if user.is_authenticated %}
+    <form method="post" action="/blog/topics/{{ topic.id }}">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Skomentuj">
+    </form>
+    {% endif %}
+    </div>
+{% endblock %}

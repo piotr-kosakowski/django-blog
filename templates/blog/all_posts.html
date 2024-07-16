@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="extends-base">
+
+<table>
+   <tr><td><h4><a href={% url 'index' %}>Powrót do strony głównej</a></h4> </td>
+</tr>
+    {% for post in list_of_posts %}
+        <tr>
+            <td>
+                <img src='{{ post.image.url }}' alt="Image" id="post-image">
+            </td>
+            <td>[{{ post.category }}]</td>
+
+            <td><span id="user-name">
+                {{ post.author.username }}:
+            </span></td>
+            <td>
+            <a href="{%url 'post' post.id %} ">
+                {{ post.title }}
+            </a>
+            </td>
+            <td>{{ post.pub_date|date:"j F Y H:i" }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}
